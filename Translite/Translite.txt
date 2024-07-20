@@ -1,0 +1,86 @@
+def Translite(ruStr):
+    ruLetters = ['А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я']
+    ruStrUp = ruStr.upper()
+    latStr = ''
+    i = 0
+    convert = False
+    while(i < len(ruStrUp)):
+        s = ruStrUp[i]
+        if s in ruLetters:
+            if not convert:
+                convert = True
+                latStr = latStr + '{'
+            match s:
+                case 'А':
+                    latStr = latStr + 'A'
+                case 'Б':
+                    latStr = latStr + 'B'
+                case 'В':
+                    latStr = latStr + 'V'
+                case 'Г':
+                    latStr = latStr + 'G'
+                case 'Д':
+                    latStr = latStr + 'D'
+                case 'Е':
+                    latStr = latStr + 'E'
+                case 'Ё':
+                    latStr = latStr + 'JE'
+                case 'Ж':
+                    latStr = latStr + 'ZH'
+                case 'З':
+                    latStr = latStr + 'Z'
+                case 'И':
+                    latStr = latStr + 'I'
+                case 'Й':
+                    latStr = latStr + 'Y'
+                case 'К':
+                    latStr = latStr + 'K'
+                case 'Л':
+                    latStr = latStr + 'L'
+                case 'М':
+                    latStr = latStr + 'M'
+                case 'Н':
+                    latStr = latStr + 'N'
+                case 'О':
+                    latStr = latStr + 'O'
+                case 'П':
+                    latStr = latStr + 'P'
+                case 'Р':
+                    latStr = latStr + 'R'
+                case 'С':
+                    latStr = latStr + 'S'
+                case 'Т':
+                    latStr = latStr + 'T'
+                case 'У':
+                    latStr = latStr + 'U'
+                case 'Ф':
+                    latStr = latStr + 'F'
+                case 'Х':
+                    latStr = latStr + 'KH'
+                case 'Ц':
+                    latStr = latStr + 'C'
+                case 'Ч':
+                    latStr = latStr + 'CH'
+                case 'Ш':
+                    latStr = latStr + 'SH'
+                case 'Щ':
+                    latStr = latStr + 'JSH'
+                case 'Ъ':
+                    latStr = latStr + 'HH'
+                case 'Ы':
+                    latStr = latStr + 'IH'
+                case 'Ь':
+                    latStr = latStr + 'JH'
+                case 'Э':
+                    latStr = latStr + 'EH'
+                case 'Ю':
+                    latStr = latStr + 'JU'
+                case 'Я':
+                    latStr = latStr + 'JA'
+        else:
+            if convert:
+                convert = False
+                latStr = latStr + '}'
+            latStr = latStr + s
+        i += 1
+    return latStr
